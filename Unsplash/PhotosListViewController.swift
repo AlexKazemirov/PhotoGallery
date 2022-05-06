@@ -39,7 +39,7 @@ class PhotosListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       // UnsplashPhotoPickerConfiguration(accessKey: "F_0AoAdJhMIu_-pQGHRQCrAJfEda4Qs0_mID-r8podk", secretKey: "qmD_62BcUL659420M77dSUURFDR4zna6sZ8J0M8pYsA")
+       //UnsplashPhotoPickerConfiguration(accessKey: "F_0AoAdJhMIu_-pQGHRQCrAJfEda4Qs0_mID-r8podk", secretKey: "qmD_62BcUL659420M77dSUURFDR4zna6sZ8J0M8pYsA")
         fetchPhotos()
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -84,15 +84,19 @@ extension PhotosListViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let imageURLString = results[indexPath.row].urls.full
+
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as! PhotoCell
+        
         cell.layer.borderColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
         cell.layer.borderWidth = 2
         
+        cell.configure(with: imageURLString)
         //        cell.authorNameLbl.text = String(indexPath.row)
         
-        let imageName = photos[indexPath.item]
-        let image = UIImage(named: imageName)
-        cell.pictureImageView.image = image
+        //let imageName = photos[indexPath.item]
+        //let image = UIImage(named: imageName)
+        //cell.pictureImageView.image = image
         
         cell.pictureImageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -101,6 +105,7 @@ extension PhotosListViewController: UICollectionViewDelegate, UICollectionViewDa
             cell.pictureImageView.trailingAnchor.constraint(equalTo: cell.viewContent.trailingAnchor, constant: 0),
             cell.pictureImageView.bottomAnchor.constraint(equalTo: cell.viewContent.bottomAnchor, constant: -20)
         ])
+        
         
         
         
