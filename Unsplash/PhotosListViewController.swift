@@ -8,21 +8,7 @@
 import UIKit
 import UnsplashPhotoPicker
 
-struct APIResponse: Codable {
-    let total: Int
-    let total_pages: Int
-    let results: [Result]
-}
 
-struct Result: Codable {
-    let id: String
-    let urls: URLS
-}
-
-struct URLS: Codable {
-    let full: String
-    
-}
 
 class PhotosListViewController: UIViewController {
     
@@ -84,7 +70,7 @@ extension PhotosListViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let imageURLString = results[indexPath.row].urls.full
+        let imageURLString = results[indexPath.row].urls.small
 
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as! PhotoCell
         
