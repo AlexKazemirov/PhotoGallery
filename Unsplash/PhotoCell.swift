@@ -17,6 +17,8 @@ class PhotoCell: UICollectionViewCell {
             authorName.backgroundColor = .white
             authorName.layer.masksToBounds = true
             authorName.layer.cornerRadius = 5
+            authorName.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+            authorName.layer.borderWidth = 0.5
         }
     }
     

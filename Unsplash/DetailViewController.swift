@@ -25,10 +25,12 @@ class DetailViewController: UIViewController {
             detailInfo.text = detailText
             
             detailInfo.numberOfLines = 0
-            detailInfo.textAlignment = .center
-            detailInfo.layer.cornerRadius = 10
-            detailInfo.backgroundColor = .purple
-            
+            detailInfo.textAlignment = .left
+            detailInfo.layer.masksToBounds = true
+            detailInfo.layer.cornerRadius = 5
+            detailInfo.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+            detailInfo.layer.borderWidth = 0.5
+            detailInfo.backgroundColor = .white
         }
     }
     
@@ -49,9 +51,9 @@ class DetailViewController: UIViewController {
         detailInfo.textColor = .black
         detailInfo.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            detailInfo.topAnchor.constraint(equalTo: detailPhoto.bottomAnchor, constant: 0),
-            detailInfo.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 50),
-            detailInfo.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -50)
+            detailInfo.topAnchor.constraint(equalTo: detailPhoto.bottomAnchor, constant: 5),
+            detailInfo.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 5)
+            //detailInfo.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -50)
         ])
     }
     
