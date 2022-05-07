@@ -30,21 +30,22 @@ class PhotosListViewController: UIViewController, UISearchBarDelegate, UITabBarD
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        let layout = UICollectionViewFlowLayout()
-//        layout.minimumLineSpacing = 0
-//        layout.minimumInteritemSpacing = 0
-//        layout.itemSize = CGSize(width: view.frame.width/2,
-//                                 height: view.frame.width/2)
-//        let collectionView = UICollectionView(frame: .zero,
-//                                              collectionViewLayout: layout)
-        //view.addSubview(collectionView)
-//        self.collectionView = collectionView
-        //collectionView.register(PhotoCell.self, forCellWithReuseIdentifier: PhotoCell.identifier)
+        collectionView?.register(UICollectionViewCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "headerCellId")
         collectionView.delegate = self
         collectionView.dataSource = self
         
         searchBar.delegate = self
-        view.addSubview(searchBar)
+
+        lazy var searchBar : UISearchBar = {
+            let s = UISearchBar()
+                s.placeholder = "Search Timeline"
+                s.delegate = self
+                s.tintColor = .white
+                s.barStyle = .default
+                s.sizeToFit()
+            return s
+        }()
+        
         
         //UnsplashPhotoPickerConfiguration(accessKey: "F_0AoAdJhMIu_-pQGHRQCrAJfEda4Qs0_mID-r8podk", secretKey: "qmD_62BcUL659420M77dSUURFDR4zna6sZ8J0M8pYsA")
         
@@ -57,7 +58,6 @@ class PhotosListViewController: UIViewController, UISearchBarDelegate, UITabBarD
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         searchBar.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: 50)
-//        collectionView.frame = CGRect(x: 0, y: 40, width: view.frame.size.width, height: view.frame.size.height-220)
         //collectionView.frame = CGRect(x: 0, y: view.safeAreaInsets.top + 55, width: view.frame.size.width, height: view.frame.size.height - 55)
         
     }
@@ -97,6 +97,12 @@ class PhotosListViewController: UIViewController, UISearchBarDelegate, UITabBarD
             let detailVC = segue.destination as! DetailViewController
             let cell = sender as! PhotoCell
             detailVC.image = cell.imageView?.image
+            detailVC.detailText = """
+                                            Name: \(cell.authorName.text ?? "NoName")
+                                            Location: \(cell.location ?? "NoLocation")
+                                            Likes: \(cell.likes)
+                                            Created at: \(cell.created_at.split(separator: "T")[0])
+                                        """
         }
     }
     
@@ -112,12 +118,19 @@ extension PhotosListViewController: UICollectionViewDelegate, UICollectionViewDa
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let imageURLString = results[indexPath.row].urls.small
-        
+        let name = results[indexPath.row].user.name
+        let created_at = results[indexPath.row].created_at
+        let location = results[indexPath.row].user.location
+        let likes = results[indexPath.row].likes
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCell.identifier, for: indexPath) as? PhotoCell else {
             return UICollectionViewCell()
         }
         
+        cell.created_at = created_at
+        cell.location = location
+        cell.likes = likes
         cell.configure(with: imageURLString)
+        cell.authorName.text = name
         
         cell.imageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -125,6 +138,12 @@ extension PhotosListViewController: UICollectionViewDelegate, UICollectionViewDa
             cell.imageView.leadingAnchor.constraint(equalTo: cell.contentView.leadingAnchor, constant: 0),
             cell.imageView.trailingAnchor.constraint(equalTo: cell.contentView.trailingAnchor, constant: 0),
             cell.imageView.bottomAnchor.constraint(equalTo: cell.contentView.bottomAnchor, constant: 0)
+        ])
+        
+        cell.authorName.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            cell.authorName.topAnchor.constraint(equalTo: cell.contentView.bottomAnchor, constant: -20),
+            cell.authorName.bottomAnchor.constraint(equalTo: cell.contentView.bottomAnchor, constant: 0)
         ])
         
         return cell
@@ -152,5 +171,22 @@ extension PhotosListViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return sectionInsets.left
+    }
+    
+    
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: view.frame.width, height: 40)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "headerCellId", for: indexPath)
+                header.addSubview(searchBar)
+                searchBar.translatesAutoresizingMaskIntoConstraints = false
+                searchBar.leftAnchor.constraint(equalTo: header.leftAnchor).isActive = true
+                searchBar.rightAnchor.constraint(equalTo: header.rightAnchor).isActive = true
+                searchBar.topAnchor.constraint(equalTo: header.topAnchor).isActive = true
+                searchBar.bottomAnchor.constraint(equalTo: header.bottomAnchor).isActive = true
+            return header
     }
 }

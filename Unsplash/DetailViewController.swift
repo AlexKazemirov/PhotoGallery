@@ -10,17 +10,49 @@ import UIKit
 class DetailViewController: UIViewController {
     
     @IBOutlet weak var favoriteItem: UIBarButtonItem!
-    @IBOutlet weak var detailPhoto: UIImageView!
-    @IBOutlet weak var shareActionImg: UIButton!
+    @IBOutlet weak var detailPhoto: UIImageView! {
+        didSet {
+            detailPhoto.image = image
+        }
+    }
+    @IBOutlet weak var shareActionImg: UIButton! {
+        didSet {
+            shareActionImg.layer.cornerRadius = 10
+        }
+    }
+    @IBOutlet weak var detailInfo: UILabel! {
+        didSet {
+            detailInfo.text = detailText
+            
+            detailInfo.numberOfLines = 0
+            detailInfo.textAlignment = .center
+            detailInfo.layer.cornerRadius = 10
+            detailInfo.backgroundColor = .purple
+            
+        }
+    }
     
     var image: UIImage?
+    var detailText: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
+//        detailPhoto.translatesAutoresizingMaskIntoConstraints = false
+//        NSLayoutConstraint.activate([
+//            detailPhoto.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+//            detailPhoto.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+//            detailPhoto.leftAnchor.constraint(equalTo: view.leftAnchor),
+//            detailPhoto.rightAnchor.constraint(equalTo: view.rightAnchor)
+//        ])
         
-        detailPhoto.image = image
-        shareActionImg.layer.cornerRadius = 10
-        
+        detailInfo.textColor = .black
+        detailInfo.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            detailInfo.topAnchor.constraint(equalTo: detailPhoto.bottomAnchor, constant: 0),
+            detailInfo.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 50),
+            detailInfo.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -50)
+        ])
     }
     
     

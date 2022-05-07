@@ -12,10 +12,19 @@ class PhotoCell: UICollectionViewCell {
     static let identifier = "photoCell"
 
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var authorName: UILabel! {
+        didSet {
+            authorName.backgroundColor = .white
+            authorName.layer.masksToBounds = true
+            authorName.layer.cornerRadius = 5
+        }
+    }
+    
+    var created_at = ""
+    var location: String?
+    var likes = 0
     //    override init(frame: CGRect) {
 //        super.init(frame: frame)
-//        contentView.addSubview(imageView ?? <#default value#>)
-//    }
 //
 //    required init?(coder: NSCoder) {
 //        fatalError("init(coder:) has not been implemented")
@@ -29,6 +38,7 @@ class PhotoCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         imageView.image = nil
+        authorName.text = nil
     }
     
     
