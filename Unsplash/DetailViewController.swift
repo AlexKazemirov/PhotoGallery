@@ -20,7 +20,9 @@ class DetailViewController: UIViewController {
         
         detailPhoto.image = image
         shareActionImg.layer.cornerRadius = 10
+        
     }
+    
     
     
     @IBAction func favoriteItemAction(_ sender: UIBarButtonItem) {
@@ -30,9 +32,7 @@ class DetailViewController: UIViewController {
     }
     @IBAction func shareAction(_ sender: Any) {
         let shareController = UIActivityViewController(activityItems: [image!], applicationActivities: nil)
-        shareController.completionWithItemsHandler = { _, bool, _, _ in
-            print("Success")
-            
+        shareController.completionWithItemsHandler = { _, bool, _, _ in            
         }
         present(shareController, animated: true, completion: nil)
     }

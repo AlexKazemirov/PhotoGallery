@@ -12,7 +12,7 @@
         <!--Detail View Controller-->
         <scene sceneID="dpZ-LM-sip">
             <objects>
-                <viewController id="gZY-uJ-1jw" customClass="DetailViewController" customModule="Unsplash" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailViewController" id="gZY-uJ-1jw" customClass="DetailViewController" customModule="Unsplash" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lS1-lw-NdM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -119,7 +119,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCell" id="5ec-WK-GjX" customClass="PhotoCell" customModule="Unsplash" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="photoCell" id="5ec-WK-GjX" customClass="PhotoCell" customModule="Unsplash" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="e4b-1X-aWb">
@@ -134,17 +134,12 @@
                                 </collectionViewCellContentView>
                                 <size key="customSize" width="100" height="100"/>
                                 <connections>
-                                    <outlet property="pictureImageView" destination="ThR-WI-K1Z" id="okE-3T-PhX"/>
-                                    <outlet property="viewContent" destination="e4b-1X-aWb" id="dME-oz-NLY"/>
-                                    <segue destination="gZY-uJ-1jw" kind="show" identifier="showPhoto" id="wW4-pa-jw5"/>
+                                    <segue destination="gZY-uJ-1jw" kind="show" identifier="showPhoto" id="nKl-NE-Yhg"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
                     </collectionView>
                     <navigationItem key="navigationItem" title="Pictures" id="8xJ-i3-0xX"/>
-                    <connections>
-                        <outlet property="collectionView" destination="U5R-6i-lqI" id="w5B-KC-uwn"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iRO-9M-crH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

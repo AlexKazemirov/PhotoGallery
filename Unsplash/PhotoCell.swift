@@ -9,13 +9,32 @@ import UIKit
 
 class PhotoCell: UICollectionViewCell {
     
-    @IBOutlet weak var pictureImageView: UIImageView!
-    @IBOutlet weak var viewContent: UIView!
-    // @IBOutlet weak var authorNameLbl: UILabel!
+    static let identifier = "photoCell"
+
+    let imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.clipsToBounds = true
+        imageView.contentMode = .scaleAspectFill
+        return imageView
+    }()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        contentView.addSubview(imageView)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        imageView.frame = contentView.bounds
+    }
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        pictureImageView.image = nil
+        imageView.image = nil
     }
     
     
@@ -29,7 +48,7 @@ class PhotoCell: UICollectionViewCell {
             }
             DispatchQueue.main.async {
                 let image = UIImage(data: data)
-                self?.pictureImageView.image = image
+                self?.imageView.image = image
             }
         }.resume()
     }
