@@ -134,12 +134,16 @@
                                 </collectionViewCellContentView>
                                 <size key="customSize" width="100" height="100"/>
                                 <connections>
+                                    <outlet property="imageView" destination="ThR-WI-K1Z" id="q2Z-Wq-bcl"/>
                                     <segue destination="gZY-uJ-1jw" kind="show" identifier="showPhoto" id="nKl-NE-Yhg"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
                     </collectionView>
                     <navigationItem key="navigationItem" title="Pictures" id="8xJ-i3-0xX"/>
+                    <connections>
+                        <outlet property="collectionView" destination="U5R-6i-lqI" id="LYG-Ul-b4c"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iRO-9M-crH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
