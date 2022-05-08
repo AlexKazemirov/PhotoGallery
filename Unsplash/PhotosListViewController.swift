@@ -20,6 +20,7 @@ class PhotosListViewController: UIViewController, UISearchBarDelegate, UITabBarD
     let sectionInsets = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
     
     var results: [Result] = []
+    var favoriteList: [String] = []
     
     let searchBar = UISearchBar()
     
@@ -46,6 +47,12 @@ class PhotosListViewController: UIViewController, UISearchBarDelegate, UITabBarD
         
         fetchPhotos(query: "random")
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        print(favoriteList.count)
     }
     
     
@@ -93,8 +100,8 @@ class PhotosListViewController: UIViewController, UISearchBarDelegate, UITabBarD
             let cell = sender as! PhotoCell
             detailVC.image = cell.imageView?.image
             detailVC.detailText = """
-                                            Name: \(cell.authorName.text ?? "NoName")
-                                            Location: \(cell.location ?? "NoLocation")
+                                            Name: \(cell.authorName.text ?? "No name")
+                                            Location: \(cell.location ?? "No location")
                                             Likes: \(cell.likes)
                                             Created at: \(cell.created_at.split(separator: "T")[0])
                                         """

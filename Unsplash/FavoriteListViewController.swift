@@ -28,7 +28,7 @@ class FavoriteListViewController: UIViewController {
 extension FavoriteListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(favoriteList)
+        print(favoriteList.count)
         return favoriteList.count
     }
     

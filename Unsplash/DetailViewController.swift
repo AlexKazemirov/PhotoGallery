@@ -37,7 +37,8 @@ class DetailViewController: UIViewController {
     var image: UIImage?
     var detailText: String?
     
-    var favoriteList: [UIImage] = []
+    var favoriteList: [String] = []
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,15 +54,22 @@ class DetailViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let favoriteVC = segue.destination as! FavoriteListViewController
-        favoriteVC.favoriteList = favoriteList
+        
+        let navController = self.tabBarController!.viewControllers![0] as! UINavigationController
+        let vc = navController.topViewController as! PhotosListViewController
+        vc.favoriteList[0] = "DOG"//.insert(image!, at: vc.favoriteList.endIndex)
+        
+//        let controllers = self.tabBarController?.viewControllers
+//        let favoriteVC = controllers?[1] as! FavoriteListViewController
+//
+//        favoriteVC.favoriteList.append(image!)
     }
     
     
     @IBAction func favoriteItemAction(_ sender: UIBarButtonItem) {
         
-        favoriteList.append(image!)
-        print(image?.description)
+        favoriteList.append("dog")
+        print("Massive: \(favoriteList)")
         showAlert(addOrDelete: true)
         
     }
