@@ -23,10 +23,6 @@ class PhotosListViewController: UIViewController, UISearchBarDelegate, UITabBarD
     
     let searchBar = UISearchBar()
     
-    //let cellSegueIdentifier = "showDetail"
-    
-    //@IBOutlet var collectionView: UICollectionView!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,6 +31,7 @@ class PhotosListViewController: UIViewController, UISearchBarDelegate, UITabBarD
         collectionView.dataSource = self
         
         searchBar.delegate = self
+        
 
         lazy var searchBar : UISearchBar = {
             let s = UISearchBar()
@@ -46,8 +43,6 @@ class PhotosListViewController: UIViewController, UISearchBarDelegate, UITabBarD
             return s
         }()
         
-        
-        //UnsplashPhotoPickerConfiguration(accessKey: "F_0AoAdJhMIu_-pQGHRQCrAJfEda4Qs0_mID-r8podk", secretKey: "qmD_62BcUL659420M77dSUURFDR4zna6sZ8J0M8pYsA")
         
         fetchPhotos(query: "random")
         
@@ -122,6 +117,7 @@ extension PhotosListViewController: UICollectionViewDelegate, UICollectionViewDa
         let created_at = results[indexPath.row].created_at
         let location = results[indexPath.row].user.location
         let likes = results[indexPath.row].likes
+        
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCell.identifier, for: indexPath) as? PhotoCell else {
             return UICollectionViewCell()
         }

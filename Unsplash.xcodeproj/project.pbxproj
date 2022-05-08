@@ -18,6 +18,7 @@
 		3057C3252822C241006F141A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3057C3242822C241006F141A /* DetailViewController.swift */; };
 		3057C32B2822DC2F006F141A /* UnsplashPhotoPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 3057C32A2822DC2F006F141A /* UnsplashPhotoPicker */; };
 		3057C32F2825C2D4006F141A /* UnsplashModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3057C32E2825C2D4006F141A /* UnsplashModel.swift */; };
+		30872D1F2827A42400494845 /* TableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30872D1E2827A42400494845 /* TableCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		302EDCF9282296F900879643 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		3057C3242822C241006F141A /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		3057C32E2825C2D4006F141A /* UnsplashModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashModel.swift; sourceTree = "<group>"; };
+		30872D1E2827A42400494845 /* TableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,8 +72,9 @@
 				302EDCE528228DA500879643 /* SceneDelegate.swift */,
 				3029C50D28229B7F007FC82A /* PhotosListViewController.swift */,
 				3057C3242822C241006F141A /* DetailViewController.swift */,
-				302EDCF72822922400879643 /* FavoriteListViewController.swift */,
 				302EDCF9282296F900879643 /* PhotoCell.swift */,
+				302EDCF72822922400879643 /* FavoriteListViewController.swift */,
+				30872D1E2827A42400494845 /* TableCell.swift */,
 				3057C32E2825C2D4006F141A /* UnsplashModel.swift */,
 				302EDCE928228DA500879643 /* Main.storyboard */,
 				302EDCEC28228DA600879643 /* Assets.xcassets */,
@@ -160,6 +163,7 @@
 			files = (
 				3057C32F2825C2D4006F141A /* UnsplashModel.swift in Sources */,
 				302EDCF82822922400879643 /* FavoriteListViewController.swift in Sources */,
+				30872D1F2827A42400494845 /* TableCell.swift in Sources */,
 				3029C50E28229B7F007FC82A /* PhotosListViewController.swift in Sources */,
 				302EDCFA282296F900879643 /* PhotoCell.swift in Sources */,
 				3057C3252822C241006F141A /* DetailViewController.swift in Sources */,

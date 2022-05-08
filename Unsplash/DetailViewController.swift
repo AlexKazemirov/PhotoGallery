@@ -37,18 +37,13 @@ class DetailViewController: UIViewController {
     var image: UIImage?
     var detailText: String?
     
+    var favoriteList: [UIImage] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-//        detailPhoto.translatesAutoresizingMaskIntoConstraints = false
-//        NSLayoutConstraint.activate([
-//            detailPhoto.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-//            detailPhoto.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-//            detailPhoto.leftAnchor.constraint(equalTo: view.leftAnchor),
-//            detailPhoto.rightAnchor.constraint(equalTo: view.rightAnchor)
-//        ])
         
         detailInfo.textColor = .black
+        
         detailInfo.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             detailInfo.topAnchor.constraint(equalTo: detailPhoto.bottomAnchor, constant: 5),
@@ -57,14 +52,22 @@ class DetailViewController: UIViewController {
         ])
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let favoriteVC = segue.destination as! FavoriteListViewController
+        favoriteVC.favoriteList = favoriteList
+    }
     
     
     @IBAction func favoriteItemAction(_ sender: UIBarButtonItem) {
         
+        favoriteList.append(image!)
+        print(image?.description)
         showAlert(addOrDelete: true)
         
     }
     @IBAction func shareAction(_ sender: Any) {
+        
+        
         let shareController = UIActivityViewController(activityItems: [image!], applicationActivities: nil)
         shareController.completionWithItemsHandler = { _, bool, _, _ in            
         }
