@@ -57,8 +57,9 @@ class DetailViewController: UIViewController {
         
         let navController = self.tabBarController!.viewControllers![0] as! UINavigationController
         let vc = navController.topViewController as! PhotosListViewController
-        vc.favoriteList[0] = "DOG"//.insert(image!, at: vc.favoriteList.endIndex)
         
+        vc.favoriteList[0] = "DOG"//.insert(image!, at: vc.favoriteList.endIndex)
+        print(vc.favoriteList.count)
 //        let controllers = self.tabBarController?.viewControllers
 //        let favoriteVC = controllers?[1] as! FavoriteListViewController
 //

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		300CD56F2827F6B90053F135 /* Unsplash.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 300CD56D2827F6B90053F135 /* Unsplash.xcdatamodeld */; };
 		3029C50E28229B7F007FC82A /* PhotosListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3029C50D28229B7F007FC82A /* PhotosListViewController.swift */; };
 		302EDCE428228DA500879643 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302EDCE328228DA500879643 /* AppDelegate.swift */; };
 		302EDCE628228DA500879643 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302EDCE528228DA500879643 /* SceneDelegate.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		300CD56E2827F6B90053F135 /* Unsplash.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Unsplash.xcdatamodel; sourceTree = "<group>"; };
 		3029C50D28229B7F007FC82A /* PhotosListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosListViewController.swift; sourceTree = "<group>"; };
 		302EDCE028228DA500879643 /* Unsplash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Unsplash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		302EDCE328228DA500879643 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 				302EDCEC28228DA600879643 /* Assets.xcassets */,
 				302EDCEE28228DA600879643 /* LaunchScreen.storyboard */,
 				302EDCF128228DA600879643 /* Info.plist */,
+				300CD56D2827F6B90053F135 /* Unsplash.xcdatamodeld */,
 			);
 			path = Unsplash;
 			sourceTree = "<group>";
@@ -164,6 +167,7 @@
 				3057C32F2825C2D4006F141A /* UnsplashModel.swift in Sources */,
 				302EDCF82822922400879643 /* FavoriteListViewController.swift in Sources */,
 				30872D1F2827A42400494845 /* TableCell.swift in Sources */,
+				300CD56F2827F6B90053F135 /* Unsplash.xcdatamodeld in Sources */,
 				3029C50E28229B7F007FC82A /* PhotosListViewController.swift in Sources */,
 				302EDCFA282296F900879643 /* PhotoCell.swift in Sources */,
 				3057C3252822C241006F141A /* DetailViewController.swift in Sources */,
@@ -409,6 +413,19 @@
 			productName = UnsplashPhotoPicker;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		300CD56D2827F6B90053F135 /* Unsplash.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				300CD56E2827F6B90053F135 /* Unsplash.xcdatamodel */,
+			);
+			currentVersion = 300CD56E2827F6B90053F135 /* Unsplash.xcdatamodel */;
+			path = Unsplash.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 302EDCD828228DA500879643 /* Project object */;
 }
