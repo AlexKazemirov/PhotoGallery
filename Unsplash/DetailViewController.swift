@@ -37,7 +37,12 @@ class DetailViewController: UIViewController {
     var image: UIImage?
     var detailText: String?
     
-    var favoriteList: [String] = []
+    var id: String?
+    var imageURL: String?
+    var authorName: String?
+    var imageName: String?
+    
+    var favoriteList: [PickedImages] = []
     
     
     override func viewDidLoad() {
@@ -69,8 +74,8 @@ class DetailViewController: UIViewController {
     
     @IBAction func favoriteItemAction(_ sender: UIBarButtonItem) {
         
-        favoriteList.append("dog")
-        print("Massive: \(favoriteList)")
+//        favoriteList.append("dog")
+//        print("Massive: \(favoriteList)")
         showAlert(addOrDelete: true)
         
     }
@@ -96,14 +101,46 @@ class DetailViewController: UIViewController {
         alert.addAction(action)
         present(alert, animated: true)
     }
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
+    // -MARK: CoreData
+    
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    func getAllItems() {
+        do {
+            favoriteList = try context.fetch(PickedImages.fetchRequest())
+        }
+        catch {
+            //error
+        }
+        
+    }
+    
+    func createItem() {
+        let newItem = PickedImages(context: context)
+        newItem.authorName = authorName
+        newItem.imageName = imageName
+        if let imageURL = imageURL {
+            newItem.image = URL(string: imageURL)
+        }
+        newItem.id = id
+        
+        do {
+            try context.save()
+        }
+        catch {
+            
+        }
+    }
+    
+    func deleteItem(item: PickedImages) {
+        context.delete(item)
+        do {
+            try context.save()
+        }
+        catch {
+            
+        }
+    }
+
 }

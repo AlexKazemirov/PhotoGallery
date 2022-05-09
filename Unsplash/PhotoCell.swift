@@ -26,6 +26,8 @@ class PhotoCell: UICollectionViewCell {
     var created_at = ""
     var location: String?
     var likes = 0
+    
+    var id: String?
     //    override init(frame: CGRect) {
 //        super.init(frame: frame)
 //

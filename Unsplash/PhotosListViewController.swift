@@ -100,6 +100,7 @@ class PhotosListViewController: UIViewController, UISearchBarDelegate, UITabBarD
             let detailVC = segue.destination as! DetailViewController
             let cell = sender as! PhotoCell
             detailVC.image = cell.imageView?.image
+            detailVC.id = cell.id
             detailVC.detailText = """
                                   Name: \(cell.authorName.text ?? "No name")
                                   Location: \(cell.location ?? "No location")
@@ -124,6 +125,7 @@ extension PhotosListViewController: UICollectionViewDelegate, UICollectionViewDa
         let created_at = results[indexPath.row].created_at
         let location = results[indexPath.row].user.location
         let likes = results[indexPath.row].likes
+        let id = results[indexPath.row].id
         
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCell.identifier, for: indexPath) as? PhotoCell else {
             return UICollectionViewCell()
@@ -134,6 +136,7 @@ extension PhotosListViewController: UICollectionViewDelegate, UICollectionViewDa
         cell.likes = likes
         cell.configure(with: imageURLString)
         cell.authorName.text = name
+        cell.id = id
         
         cell.imageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([

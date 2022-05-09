@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		300CD56F2827F6B90053F135 /* Unsplash.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 300CD56D2827F6B90053F135 /* Unsplash.xcdatamodeld */; };
+		300CD57A28282B8F0053F135 /* PickedImages+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300CD57828282B8F0053F135 /* PickedImages+CoreDataClass.swift */; };
+		300CD57B28282B8F0053F135 /* PickedImages+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300CD57928282B8F0053F135 /* PickedImages+CoreDataProperties.swift */; };
 		3029C50E28229B7F007FC82A /* PhotosListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3029C50D28229B7F007FC82A /* PhotosListViewController.swift */; };
 		302EDCE428228DA500879643 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302EDCE328228DA500879643 /* AppDelegate.swift */; };
 		302EDCE628228DA500879643 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302EDCE528228DA500879643 /* SceneDelegate.swift */; };
@@ -24,6 +26,8 @@
 
 /* Begin PBXFileReference section */
 		300CD56E2827F6B90053F135 /* Unsplash.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Unsplash.xcdatamodel; sourceTree = "<group>"; };
+		300CD57828282B8F0053F135 /* PickedImages+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PickedImages+CoreDataClass.swift"; sourceTree = "<group>"; };
+		300CD57928282B8F0053F135 /* PickedImages+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PickedImages+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3029C50D28229B7F007FC82A /* PhotosListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosListViewController.swift; sourceTree = "<group>"; };
 		302EDCE028228DA500879643 /* Unsplash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Unsplash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		302EDCE328228DA500879643 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +55,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		300CD57C28282BA60053F135 /* PickedImages */ = {
+			isa = PBXGroup;
+			children = (
+				300CD57828282B8F0053F135 /* PickedImages+CoreDataClass.swift */,
+				300CD57928282B8F0053F135 /* PickedImages+CoreDataProperties.swift */,
+			);
+			path = PickedImages;
+			sourceTree = "<group>";
+		};
 		302EDCD728228DA500879643 = {
 			isa = PBXGroup;
 			children = (
@@ -78,6 +91,7 @@
 				302EDCF72822922400879643 /* FavoriteListViewController.swift */,
 				30872D1E2827A42400494845 /* TableCell.swift */,
 				3057C32E2825C2D4006F141A /* UnsplashModel.swift */,
+				300CD57C28282BA60053F135 /* PickedImages */,
 				302EDCE928228DA500879643 /* Main.storyboard */,
 				302EDCEC28228DA600879643 /* Assets.xcassets */,
 				302EDCEE28228DA600879643 /* LaunchScreen.storyboard */,
@@ -164,9 +178,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				300CD57A28282B8F0053F135 /* PickedImages+CoreDataClass.swift in Sources */,
 				3057C32F2825C2D4006F141A /* UnsplashModel.swift in Sources */,
 				302EDCF82822922400879643 /* FavoriteListViewController.swift in Sources */,
 				30872D1F2827A42400494845 /* TableCell.swift in Sources */,
+				300CD57B28282B8F0053F135 /* PickedImages+CoreDataProperties.swift in Sources */,
 				300CD56F2827F6B90053F135 /* Unsplash.xcdatamodeld in Sources */,
 				3029C50E28229B7F007FC82A /* PhotosListViewController.swift in Sources */,
 				302EDCFA282296F900879643 /* PhotoCell.swift in Sources */,
