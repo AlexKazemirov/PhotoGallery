@@ -57,49 +57,62 @@ class DetailViewController: UIViewController {
         ])
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        let navController = self.tabBarController!.viewControllers![0] as! UINavigationController
-        let vc = navController.topViewController as! PhotosListViewController
-        
-        vc.favoriteList[0] = "DOG"//.insert(image!, at: vc.favoriteList.endIndex)
-        print(vc.favoriteList.count)
-//        let controllers = self.tabBarController?.viewControllers
-//        let favoriteVC = controllers?[1] as! FavoriteListViewController
-//
-//        favoriteVC.favoriteList.append(image!)
-    }
-    
-    
     @IBAction func favoriteItemAction(_ sender: UIBarButtonItem) {
         
-        self.createItem(id: id ?? "Id", authorName: authorName ?? "Author name", image: imageURL ?? "dog1")
-//        favoriteList.append("dog")
-//        print("Massive: \(favoriteList)")
-        showAlert(addOrDelete: true)
+        getAllItems()
+        var k = 0
+        for i in 0..<favoriteList.count {
+            id == favoriteList[i].id ? (k += 1) : (k += 0)
+        }
+        
+        if k == 0 {
+            self.createItem(id: id ?? "Id", authorName: authorName ?? "Author name", image: imageURL ?? "galleryTab")
+            showAlert(isOrNot: false)
+        } else {
+            showAlert(isOrNot: true)
+        }
+        
+        
+        
         
     }
     @IBAction func shareAction(_ sender: Any) {
         
         
         let shareController = UIActivityViewController(activityItems: [image!], applicationActivities: nil)
-        shareController.completionWithItemsHandler = { _, bool, _, _ in            
+        shareController.completionWithItemsHandler = { _, bool, _, _ in
         }
         present(shareController, animated: true, completion: nil)
     }
     
-    func showAlert(addOrDelete: Bool) {
+    func showAlert(isOrNot: Bool) {
         
-        let alert = UIAlertController(title: "Done", message: "Added!", preferredStyle: .alert)
-        let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
-        alert.addAction(action)
-        present(alert, animated: true)
+        if isOrNot == false {
+            let alert = UIAlertController(title: "✅", message: "Picture added to favorites successfully!", preferredStyle: .alert)
+            let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
+            alert.addAction(action)
+            present(alert, animated: true)
+        } else {
+            let alert = UIAlertController(title: "⚠️", message: "This picture is already in favorites!", preferredStyle: .alert)
+            let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
+            alert.addAction(action)
+            present(alert, animated: true)
+        }
     }
     
     // -MARK: CoreData
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
+    func getAllItems() {
+        do {
+            favoriteList = try context.fetch(PickedImages.fetchRequest())
+        }
+        catch {
+            //error
+        }
+        
+    }
     
     func createItem(id: String, authorName: String, image: String) {
         let newItem = PickedImages(context: context)
@@ -115,14 +128,4 @@ class DetailViewController: UIViewController {
         }
     }
     
-    func deleteItem(item: PickedImages) {
-        context.delete(item)
-        do {
-            try context.save()
-        }
-        catch {
-            
-        }
-    }
-
 }

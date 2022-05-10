@@ -36,18 +36,6 @@ class PhotosListViewController: UIViewController, UISearchBarDelegate, UITabBarD
         
         searchBar.delegate = self
         
-
-        lazy var searchBar : UISearchBar = {
-            let s = UISearchBar()
-                s.placeholder = "Search Timeline"
-                s.delegate = self
-                s.tintColor = .white
-                s.barStyle = .default
-                s.sizeToFit()
-            return s
-        }()
-        
-        
         fetchPhotos(query: "random")
         
     }
@@ -63,18 +51,21 @@ class PhotosListViewController: UIViewController, UISearchBarDelegate, UITabBarD
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         searchBar.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: 50)
-        //collectionView.frame = CGRect(x: 0, y: view.safeAreaInsets.top + 55, width: view.frame.size.width, height: view.frame.size.height - 55)
         
+        searchBar.backgroundImage = UIImage()
+        searchBar.placeholder = "What are you looking for?"
     }
     
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
         searchBar.resignFirstResponder()
         if let text = searchBar.text {
             results = []
             collectionView.reloadData()
             fetchPhotos(query: text)
         }
+        
     }
     
     

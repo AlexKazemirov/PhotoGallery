@@ -54,7 +54,7 @@
                             </collectionViewCell>
                         </cells>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="Pictures" id="8xJ-i3-0xX"/>
+                    <navigationItem key="navigationItem" title="Pictures" largeTitleDisplayMode="always" id="8xJ-i3-0xX"/>
                     <connections>
                         <outlet property="collectionView" destination="U5R-6i-lqI" id="LYG-Ul-b4c"/>
                     </connections>
@@ -117,7 +117,7 @@
             </objects>
             <point key="canvasLocation" x="2802.898550724638" y="-250.44642857142856"/>
         </scene>
-        <!--Favorite List View Controller-->
+        <!--Favorite pictures-->
         <scene sceneID="0zA-Ju-Bm9">
             <objects>
                 <viewController id="2TO-jV-h2P" customClass="FavoriteListViewController" customModule="Unsplash" customModuleProvider="target" sceneMemberID="viewController">
@@ -161,7 +161,7 @@
                         <viewLayoutGuide key="safeArea" id="pzs-xg-1zP"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="aLl-cW-SLR"/>
+                    <navigationItem key="navigationItem" title="Favorite pictures" largeTitleDisplayMode="always" id="aLl-cW-SLR"/>
                     <connections>
                         <outlet property="tableView" destination="1pm-ve-qpo" id="hM4-Vo-sU8"/>
                     </connections>
@@ -196,8 +196,8 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="R4H-5r-dHr" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="galleryTab" id="rLp-Bj-EBt"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6hf-fm-148">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="6hf-fm-148">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -215,8 +215,8 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SFg-Dr-mmM" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="starTab" id="IkD-eG-vgs"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="x4u-bO-cuA">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="x4u-bO-cuA">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -230,10 +230,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="galleryTab" width="72" height="72"/>
+        <image name="galleryTab" width="36" height="36"/>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
-        <image name="starTab" width="60" height="60"/>
+        <image name="starTab" width="30" height="30"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
