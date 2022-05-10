@@ -1,11 +1,11 @@
 {
   "images" : [
     {
-      "filename" : "dog4.jpg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "star_20pt_3x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

@@ -28,6 +28,8 @@ class PhotosListViewController: UIViewController, UISearchBarDelegate, UITabBarD
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //tabBarController?.tabBar
+        
         collectionView?.register(UICollectionViewCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "headerCellId")
         collectionView.delegate = self
         collectionView.dataSource = self

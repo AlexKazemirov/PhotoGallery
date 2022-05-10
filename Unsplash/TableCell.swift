@@ -15,11 +15,7 @@ class TableCell: UITableViewCell {
         }
     }
 
-    @IBOutlet weak var id: UILabel! {
-        didSet {
-            //pictureName.text = "Name"
-        }
-    }
+    var id: String?
 
     @IBOutlet weak var authorName: UILabel! {
         didSet {
@@ -31,7 +27,6 @@ class TableCell: UITableViewCell {
     
     override func prepareForReuse() {
 //        pictureImage = nil
-//        pictureName = nil
 //        authorName = nil
     }
     
@@ -51,6 +46,20 @@ class TableCell: UITableViewCell {
     }
     
     func setConstraints() {
+        pictureImage.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            pictureImage.topAnchor.constraint(equalTo: contentView.topAnchor),
+            pictureImage.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            pictureImage.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 20),
+            pictureImage.rightAnchor.constraint(equalTo: contentView.leftAnchor, constant: 80)
+        ])
+        
+        authorName.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            authorName.topAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -40),
+            authorName.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20),
+            authorName.leftAnchor.constraint(equalTo: pictureImage.rightAnchor, constant: 30)
+        ])
         
     }
 }
