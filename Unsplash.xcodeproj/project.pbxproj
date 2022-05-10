@@ -66,6 +66,34 @@
 			path = PickedImages;
 			sourceTree = "<group>";
 		};
+		300CD57F282AEE770053F135 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				300CD57D282AE1B10053F135 /* TabBarController.swift */,
+				3029C50D28229B7F007FC82A /* PhotosListViewController.swift */,
+				3057C3242822C241006F141A /* DetailViewController.swift */,
+				302EDCF72822922400879643 /* FavoriteListViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		300CD580282AEE890053F135 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				302EDCF9282296F900879643 /* PhotoCell.swift */,
+				30872D1E2827A42400494845 /* TableCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		300CD581282AEE930053F135 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3057C32E2825C2D4006F141A /* UnsplashModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		302EDCD728228DA500879643 = {
 			isa = PBXGroup;
 			children = (
@@ -87,13 +115,9 @@
 			children = (
 				302EDCE328228DA500879643 /* AppDelegate.swift */,
 				302EDCE528228DA500879643 /* SceneDelegate.swift */,
-				300CD57D282AE1B10053F135 /* TabBarController.swift */,
-				3029C50D28229B7F007FC82A /* PhotosListViewController.swift */,
-				3057C3242822C241006F141A /* DetailViewController.swift */,
-				302EDCF9282296F900879643 /* PhotoCell.swift */,
-				302EDCF72822922400879643 /* FavoriteListViewController.swift */,
-				30872D1E2827A42400494845 /* TableCell.swift */,
-				3057C32E2825C2D4006F141A /* UnsplashModel.swift */,
+				300CD57F282AEE770053F135 /* Controllers */,
+				300CD580282AEE890053F135 /* Cells */,
+				300CD581282AEE930053F135 /* Model */,
 				300CD57C28282BA60053F135 /* PickedImages */,
 				302EDCE928228DA500879643 /* Main.storyboard */,
 				302EDCEC28228DA600879643 /* Assets.xcassets */,

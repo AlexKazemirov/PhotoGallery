@@ -18,6 +18,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var shareActionImg: UIButton! {
         didSet {
             shareActionImg.layer.cornerRadius = 10
+            shareActionImg.backgroundColor = #colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1)
         }
     }
     @IBOutlet weak var detailInfo: UILabel! {
@@ -47,14 +48,11 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.backgroundColor = .white
+
         detailInfo.textColor = .black
         
-        detailInfo.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            detailInfo.topAnchor.constraint(equalTo: detailPhoto.bottomAnchor, constant: 5),
-            detailInfo.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 5)
-            //detailInfo.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -50)
-        ])
+        setConstraints()
     }
     
     @IBAction func favoriteItemAction(_ sender: UIBarButtonItem) {
@@ -98,6 +96,24 @@ class DetailViewController: UIViewController {
             alert.addAction(action)
             present(alert, animated: true)
         }
+    }
+    
+    func setConstraints() {
+        
+        detailInfo.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            detailInfo.topAnchor.constraint(equalTo: detailPhoto.bottomAnchor, constant: 5),
+            detailInfo.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 5)
+        ])
+        
+        shareActionImg.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            shareActionImg.topAnchor.constraint(equalTo: detailPhoto.bottomAnchor, constant: -10),
+            shareActionImg.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -10),
+            shareActionImg.leftAnchor.constraint(equalTo: view.rightAnchor, constant: -60),
+            shareActionImg.bottomAnchor.constraint(equalTo: detailPhoto.bottomAnchor, constant: 25)
+        ])
+        
     }
     
     // -MARK: CoreData

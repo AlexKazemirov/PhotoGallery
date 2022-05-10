@@ -18,8 +18,8 @@ class FavoriteListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //navigationController?.title = "Favorite images"
-        navigationController?.navigationBar.prefersLargeTitles = true
+        view.backgroundColor = .white
+        
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -51,7 +51,7 @@ extension FavoriteListViewController: UITableViewDelegate, UITableViewDataSource
         cell.authorName.text = model.authorName
         cell.id = model.id
         //cell.pictureImage.image = UIImage(named: model.imageURL ?? "dog1")
-        cell.configure(with: model.imageURL ?? "dog1")
+        cell.configure(with: model.imageURL!)
         //        let imageName = UIImage(named: String(model.image))
         //        cell.pictureImage = imageName
         
