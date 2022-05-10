@@ -3,10 +3,9 @@
     <entity name="PickedImages" representedClassName=".PickedImages" syncable="YES">
         <attribute name="authorName" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="String"/>
-        <attribute name="image" optional="YES" attributeType="URI"/>
-        <attribute name="imageName" optional="YES" attributeType="String"/>
+        <attribute name="imageURL" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="PickedImages" positionX="-63" positionY="-18" width="128" height="89"/>
+        <element name="PickedImages" positionX="235.82421875" positionY="-591.07421875" width="128" height="88"/>
     </elements>
 </model>

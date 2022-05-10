@@ -9,44 +9,48 @@ import UIKit
 
 class TableCell: UITableViewCell {
     
-    @IBOutlet weak var pictureImage: UIImageView!{
+    @IBOutlet weak var pictureImage: UIImageView! {
         didSet {
-            pictureImage.image = UIImage(named: "dog2")
-            
-            pictureImage.translatesAutoresizingMaskIntoConstraints = false
-            NSLayoutConstraint.activate([
-                pictureImage.topAnchor.constraint(equalTo: contentView.topAnchor),
-                pictureImage.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-                pictureImage.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 10),
-                pictureImage.rightAnchor.constraint(equalTo: contentView.leftAnchor, constant: 90)
-            ])
+            //pictureImage.image = UIImage(named: "dog2")
         }
     }
 
-    @IBOutlet weak var pictureName: UILabel! {
+    @IBOutlet weak var id: UILabel! {
         didSet {
-            pictureName.text = "Name"
-            
-            pictureName.translatesAutoresizingMaskIntoConstraints = false
-            NSLayoutConstraint.activate([
-                pictureName.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15),
-                pictureName.bottomAnchor.constraint(equalTo: contentView.topAnchor, constant: 30),
-                pictureName.leftAnchor.constraint(equalTo: pictureImage.rightAnchor, constant: 20)
-            ])
+            //pictureName.text = "Name"
         }
     }
 
     @IBOutlet weak var authorName: UILabel! {
         didSet {
-            authorName.text = "Author"
+            //authorName.text = "Author"
         }
     }
     
     static let identifier = "tableCell"
     
     override func prepareForReuse() {
-        pictureImage = nil
-        pictureName = nil
-        authorName = nil
+//        pictureImage = nil
+//        pictureName = nil
+//        authorName = nil
+    }
+    
+    func configure(with urlString: String) {
+        guard let url = URL(string: urlString) else {
+            return
+        }
+        URLSession.shared.dataTask(with: url) { [weak self] data, _, error in
+            guard let data = data, error == nil else {
+                return
+            }
+            DispatchQueue.main.async {
+                let image = UIImage(data: data)
+                self?.pictureImage.image = image
+            }
+        }.resume()
+    }
+    
+    func setConstraints() {
+        
     }
 }

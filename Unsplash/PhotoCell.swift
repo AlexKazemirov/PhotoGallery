@@ -28,6 +28,7 @@ class PhotoCell: UICollectionViewCell {
     var likes = 0
     
     var id: String?
+    var imageURLString: String?
     //    override init(frame: CGRect) {
 //        super.init(frame: frame)
 //

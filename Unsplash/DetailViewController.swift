@@ -40,7 +40,6 @@ class DetailViewController: UIViewController {
     var id: String?
     var imageURL: String?
     var authorName: String?
-    var imageName: String?
     
     var favoriteList: [PickedImages] = []
     
@@ -74,6 +73,7 @@ class DetailViewController: UIViewController {
     
     @IBAction func favoriteItemAction(_ sender: UIBarButtonItem) {
         
+        self.createItem(id: id ?? "Id", authorName: authorName ?? "Author name", image: imageURL ?? "dog1")
 //        favoriteList.append("dog")
 //        print("Massive: \(favoriteList)")
         showAlert(addOrDelete: true)
@@ -89,14 +89,8 @@ class DetailViewController: UIViewController {
     }
     
     func showAlert(addOrDelete: Bool) {
-        var msg: String
         
-        if addOrDelete {
-            msg = "Added"
-        } else {
-            msg = "Deleted"
-        }
-        let alert = UIAlertController(title: "Succesfully!", message: msg, preferredStyle: .alert)
+        let alert = UIAlertController(title: "Done", message: "Added!", preferredStyle: .alert)
         let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
         alert.addAction(action)
         present(alert, animated: true)
@@ -106,24 +100,12 @@ class DetailViewController: UIViewController {
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-    func getAllItems() {
-        do {
-            favoriteList = try context.fetch(PickedImages.fetchRequest())
-        }
-        catch {
-            //error
-        }
-        
-    }
     
-    func createItem() {
+    func createItem(id: String, authorName: String, image: String) {
         let newItem = PickedImages(context: context)
-        newItem.authorName = authorName
-        newItem.imageName = imageName
-        if let imageURL = imageURL {
-            newItem.image = URL(string: imageURL)
-        }
         newItem.id = id
+        newItem.authorName = authorName
+        newItem.imageURL = image
         
         do {
             try context.save()

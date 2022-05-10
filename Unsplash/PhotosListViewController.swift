@@ -101,6 +101,8 @@ class PhotosListViewController: UIViewController, UISearchBarDelegate, UITabBarD
             let cell = sender as! PhotoCell
             detailVC.image = cell.imageView?.image
             detailVC.id = cell.id
+            detailVC.authorName = cell.authorName.text
+            detailVC.imageURL = cell.imageURLString
             detailVC.detailText = """
                                   Name: \(cell.authorName.text ?? "No name")
                                   Location: \(cell.location ?? "No location")
@@ -131,6 +133,7 @@ extension PhotosListViewController: UICollectionViewDelegate, UICollectionViewDa
             return UICollectionViewCell()
         }
         
+        cell.imageURLString = imageURLString
         cell.created_at = created_at
         cell.location = location
         cell.likes = likes

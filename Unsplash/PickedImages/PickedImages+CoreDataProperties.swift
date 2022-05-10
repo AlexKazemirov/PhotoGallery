@@ -17,10 +17,8 @@ extension PickedImages {
     }
 
     @NSManaged public var id: String?
-    @NSManaged public var image: URL?
     @NSManaged public var authorName: String?
-    @NSManaged public var imageName: String?
-
+    @NSManaged public var imageURL: String?
 }
 
 extension PickedImages : Identifiable {

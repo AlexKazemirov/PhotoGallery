@@ -159,8 +159,8 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="authorName" destination="xWv-pK-yPJ" id="Lqb-F1-x6P"/>
+                                            <outlet property="id" destination="q4G-hY-dD4" id="Jl7-nZ-dcd"/>
                                             <outlet property="pictureImage" destination="ORG-CN-AAi" id="TTA-XX-pP0"/>
-                                            <outlet property="pictureName" destination="q4G-hY-dD4" id="Jl7-nZ-dcd"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -169,7 +169,6 @@
                         <viewLayoutGuide key="safeArea" id="pzs-xg-1zP"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="heart.circle" catalog="system" id="IkD-eG-vgs"/>
                     <navigationItem key="navigationItem" id="aLl-cW-SLR"/>
                     <connections>
                         <outlet property="tableView" destination="1pm-ve-qpo" id="hM4-Vo-sU8"/>
@@ -177,7 +176,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r2B-p6-2ZB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="928.98550724637687" y="496.875"/>
+            <point key="canvasLocation" x="1839.1304347826087" y="496.875"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="ZME-As-tAE">
@@ -191,7 +190,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="R4H-5r-dHr" kind="relationship" relationship="viewControllers" id="fEH-XL-fBZ"/>
-                        <segue destination="2TO-jV-h2P" kind="relationship" relationship="viewControllers" id="WYn-bG-TFQ"/>
+                        <segue destination="SFg-Dr-mmM" kind="relationship" relationship="viewControllers" id="WYn-bG-TFQ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nFL-cV-LBN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -216,6 +215,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ggo-kK-fgO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="933.33333333333337" y="-250.44642857142856"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Jq4-5u-tqH">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SFg-Dr-mmM" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="heart.circle" catalog="system" id="IkD-eG-vgs"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="x4u-bO-cuA">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="2TO-jV-h2P" kind="relationship" relationship="rootViewController" id="P7y-bk-rj8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YXf-N1-4Tl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="928.98550724637687" y="496.875"/>
         </scene>
     </scenes>
     <resources>
